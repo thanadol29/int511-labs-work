@@ -1,0 +1,20 @@
+<!DOCTYPEhtml>
+    <html>
+
+    <head>
+        <title>Posts</title>
+    </head>
+
+    <body>
+        <h1>Posts</h1>
+        <ul>
+            @each(post in posts)
+            <li><a href="/posts/{{post.id}}">{{post.title}}</a></li>
+            <p>{{post.id}}</p>
+            @endeach
+        </ul>
+        
+        <a href="/posts/create">New</a>
+    </body>
+
+    </html>

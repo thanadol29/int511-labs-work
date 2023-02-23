@@ -1,0 +1,44 @@
+@layout('layouts/master')
+@set('title','New Post')
+@section('body')
+<h1 class="ui header">New Post</h1>
+
+@if(post)
+<form class="ui form" action="{{route('posts.update',{id : post.id})}}"  method="post">
+    <div class="field">
+        <label>Title</label>
+        @!component('./components/input', {label: 'input',name: 'title',value:post.title})
+    </div>
+    <div class="field">
+        <label>Body</title>
+            @!component('./components/textarea', {label:'test', name: 'body', value:post.body})
+    </div>
+    @!component('./components/input', {
+    type: 'submit',
+    })
+</form>
+
+@else
+<form class="ui form" action="{{route('posts.store')}}" method="post">
+    <div class="field">
+        <label>Title</label>
+        @!component('./components/input', {label: 'input',name: 'title',value:''})
+    </div>
+    <div class="field">
+        <label>Body</title>
+            @!component('./components/textarea', {label:'test', name: 'body', value:''})
+    </div>
+    @!component('./components/input', {
+    type: 'submit',
+    })
+</form>
+@end
+
+@endsection
+{{--  @!section('script')
+<script>
+    if (post.title)
+        console.log(post.title)
+
+</script>
+@endsection  --}}

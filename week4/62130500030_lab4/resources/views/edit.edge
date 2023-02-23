@@ -1,0 +1,16 @@
+@layout('layouts/master')
+@set('title','Edit Post')
+@section('body')
+<h1 class="ui header">Edit Post</h1>
+<form class="ui form" action="{{route('posts.update',{id : post.id})}}" method="post">
+<div class="field">
+<label>Title</label>
+<input type="text" name="title" value="{{post.title}}" size="50">
+</div>
+<div class="field">
+<label>Body</title>
+<textarea name="body" rows="5" cols="50">{{post.body}}</textarea>
+</div>
+<input class="ui button" type="submit" value="Save">
+</form>
+@endsection

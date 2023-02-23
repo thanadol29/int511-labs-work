@@ -1,0 +1,25 @@
+@layout('layouts/master')
+@set('title','Edit Post')
+@section('body')
+<h1 class="ui header">Edit Post</h1>
+<form class="ui form" action="{{route('posts.update',{id : post.id})}}" method="post">
+<div class="field">
+<label>Title</label>
+{{--  <input type="text" name="title" value="{{post.title}}" size="50">  --}}
+@!component('./components/input', {
+    label: 'input',
+    name: 'title',
+    value: post.title
+})
+</div>
+<div class="field">
+<label>Body</title>
+{{--  <textarea name="body" rows="5" cols="50">{{post.body}}</textarea>  --}}
+@!component('./components/textarea', {label:'test', name: 'body', value: post.body })
+</div>
+{{--  <input class="ui button" type="submit" value="Save1">  --}}
+@!component('./components/input', {
+    type: 'submit',
+})
+</form>
+@endsection

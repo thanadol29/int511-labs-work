@@ -1,0 +1,10 @@
+<div class="field">
+    @if(label)
+    <label for="{{name}}">{{label}}</label>
+    @end
+    @if(type=="submit")
+    <input id="{{name}}"class="ui button"{{$props.serializeExcept(['label']) }}>
+    @else
+    <input id="{{name}}"{{$props.serializeExcept(['label']) }}>
+    @end
+</div>

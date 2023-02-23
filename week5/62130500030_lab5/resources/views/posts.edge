@@ -1,0 +1,23 @@
+@layout('layouts/master')
+
+@set('title', 'Posts')
+
+@section('css')
+  <style>
+    body { 
+        background-color: lightblue;
+    }
+  </style>
+@endsection
+
+@section('body')
+    @super
+        <h1>Posts</h1>
+        <ul>
+            @each(post in posts)
+            <li><a href="{{route('posts.show',{id : post.id})}}">{{post.title}}</a></li>
+            <p>{{post.id}}</p>
+            @endeach
+        </ul>  
+        <a href="{{route('posts.create')}}">New</a>
+@endsection

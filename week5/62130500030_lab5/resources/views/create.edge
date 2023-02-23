@@ -1,0 +1,28 @@
+@layout('layouts/master')
+@set('title','New Post')
+@section('body')
+<h1 class="ui header">New Post</h1>
+<form class="ui form" action="{{route('posts.store')}}" method="post">
+<div class="field">
+<label>Title</label>
+{{--  <input type="text" name="title" size="50">  --}}
+@!component('./components/input', {
+    label: 'input',
+    name: 'title',
+    value:''
+})
+</div>
+<div class="field">
+<label>Body</title>
+{{--  <textarea name="body" rows="5" cols="50"></textarea>  --}}
+@!component('./components/textarea', {label:'test', name: 'body', value:'' })
+</div>
+
+
+{{--  <input class="ui button" type="submit" value="Save">  --}}
+@!component('./components/input', {
+    type: 'submit',
+
+})
+</form>
+@endsection

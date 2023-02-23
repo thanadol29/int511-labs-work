@@ -1,0 +1,13 @@
+{{--  <textarea @props.seriallizeExcept('value')>
+    @if(value)
+      {{value}}
+    @end
+</textarea>  --}}
+<div class="field">
+    <label for="{{name}}">{{label}}</label>
+    <textarea id="{{name}}"{{$props.serializeExcept(['label','value']) }}>
+        @if(value)
+        {{ value }}
+        @end
+    </textarea>
+</div>
